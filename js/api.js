@@ -14,7 +14,17 @@ function loadData(text){
 const showingPhone = phones =>{
 
          const container = document.getElementById('phone-container')
+         const showMore  = document.getElementById('show-more-btn')
          container.innerText = ''
+
+            if (phones.length >= 12) {
+                phones = phones.slice(0,12)
+                showMore.classList.remove('hidden')
+            }
+            else{
+                showMore.classList.add('hidden')
+            }
+
             phones.forEach(phone => {
                 
                 const div = document.createElement('div')
@@ -40,5 +50,5 @@ const showingPhone = phones =>{
                 container.appendChild(div)
         });
 
-        
+
 }
