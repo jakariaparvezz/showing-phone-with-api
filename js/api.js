@@ -1,15 +1,24 @@
-function loadData(){
-    fetch('https://openapi.programming-hero.com/api/phones?search=iphone')
+
+function call(){
+    const searchText = document.getElementById('searchText').value
+    console.log(searchText)
+    loadData(searchText)
+}
+
+function loadData(text){
+    fetch(`https://openapi.programming-hero.com/api/phones?search=${text}`)
     .then(res => res.json())
     .then(data => showingPhone(data.data))
 }
 
 const showingPhone = phones =>{
-    const container = document.getElementById('phone-container')
+
+         const container = document.getElementById('phone-container')
+         container.innerText = ''
             phones.forEach(phone => {
-                console.log(phone)
+                
                 const div = document.createElement('div')
-                div.classList = `card bg-base-200 w-96 shadow-sm`
+                div.classList = `card bg-base-200 shadow-lg`
 
                 div.innerHTML = `
                     <figure class="px-10 pt-10">
@@ -18,14 +27,18 @@ const showingPhone = phones =>{
                         alt="Shoes"
                         class="rounded-xl" />
                      </figure>
-                <div class="card-body items-center text-center">
+
+                    <div class="card-body items-center text-center">
                             <h2 class="card-title">${phone.phone_name}</h2>
                             <p>${phone.slug}</p>
                         <div class="card-actions">
                             <button class="btn btn-primary">Buy Now</button>
                         </div>
-                </div> `
+                    </div> 
+                `
 
                 container.appendChild(div)
         });
+
+        
 }

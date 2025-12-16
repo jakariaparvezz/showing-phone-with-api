@@ -13,14 +13,35 @@
   <section>
       <div class="text-center">
         <h1 class="text-center font-bold text-3xl my-9">Hi..Now it's time to play with API</h1>
-        <button onclick="loadData()" class="btn bg-green-300">click for load</button>
+        <div>
+
+          <label class="input">
+            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <input id="searchText" type="search" required placeholder="Search" />
+          </label>
+          
+          <button onclick="call()" class="btn bg-green-300">Search Phone
+          </button>
+        </div>
       </div>
   </section>
 
-  <section> 
-      <div id="phone-container" class="grid grid-cols-4 gap-6">
+  <section class="container mx-auto px-7  mt-8"> 
+      <div id="phone-container" class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-6">
           <!-- Here Child will Append -->
       </div>
+      
   </section>
 
   <script src="js/api.js"></script>
