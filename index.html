@@ -1,52 +1,72 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Play with API</title>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Play with API</title>
+      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+
 <body>
 
-  <section>
-      <div class="text-center">
-        <h1 class="text-center font-bold text-3xl my-9">Hi..Now it's time to play with API</h1>
-        <div>
+            <section>
+                <div class="text-center">
+                  <h1 class="text-center font-bold text-3xl my-9">Hi..Now it's time to play with API</h1>
+                  <div>
 
-          <label class="input">
-            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <g
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                stroke-width="2.5"
-                fill="none"
-                stroke="currentColor"
-              >
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.3-4.3"></path>
-              </g>
-            </svg>
-            <input id="searchText" type="search" required placeholder="Search" />
-          </label>
-          
-          <button onclick="call()" class="btn bg-green-300">Search Phone
-          </button>
-        </div>
-      </div>
-  </section>
+                    <label class="input">
+                      <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g
+                          stroke-linejoin="round"
+                          stroke-linecap="round"
+                          stroke-width="2.5"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <circle cx="11" cy="11" r="8"></circle>
+                          <path d="m21 21-4.3-4.3"></path>
+                        </g>
+                      </svg>
+                      <input id="searchText" type="search" required placeholder="Search" />
+                    </label>
+                    
+                    <button onclick="call()" class="btn bg-green-300">Search Phone
+                    </button>
+                  </div>
+                </div>
+            </section>
 
-  <section class=" mx-auto px-8  my-8"> 
-      <div id="phone-container" class="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2  gap-6">
-          <!-- Here Child will Append -->
-      </div>
+          <section class=" mx-auto px-8  my-8"> 
+              <div id="phone-container" class="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2  gap-6">
+                  <!-- Here Child will Append -->
+              </div>
 
-      <div id="show-more-btn" class="text-center hidden mt-10">
-        <button class="btn btn-success">Show More</button>  
-      </div>
+              <div id="show-more-btn" class="text-center hidden mt-10">
+                <button class="btn btn-success">Show More</button>  
+              </div>
 
-  </section>
+          </section>
+
+
+          <section>
+             
+          </section>
+
+  
+              <!-- You can open the modal using ID.showModal() method -->
+                    
+                    <dialog id="my_modal" class="modal">
+                      <div class="modal-box">
+                        <form method="dialog">
+                          <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 ">✕</button>
+                        </form>
+                            <div id="details-container" class="card bg-base-100 mt-4">  
+                                
+                            </div>
+
+                      </div>
+                    </dialog>
 
   <script src="js/api.js"></script>
 </body>
