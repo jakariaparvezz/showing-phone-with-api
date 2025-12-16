@@ -2,7 +2,20 @@ function call(){
     const searchText = document.getElementById('searchText').value
     
     loadData(searchText)
+    loading(true)
 }
+
+const loading= (isLoading) =>{
+    const load = document.getElementById('loading')
+    if (isLoading) {
+        load.classList.remove('hidden')
+    }
+    else{
+        load.classList.add('hidden')
+    }
+
+}
+
 
 function loadData(text='iphone'){
     fetch(`https://openapi.programming-hero.com/api/phones?search=${text}`)
@@ -50,6 +63,8 @@ const showingPhone = phones =>{
                 container.appendChild(div)
         });
 
+        loading(false)
+
 }
 
 const callDetails =async id =>{
@@ -83,7 +98,7 @@ const showDetails = details =>{
 
                                   <p><span class="font-medium text-base">Storage : </span class="font-medium">${details.mainFeatures.storage}</p>
 
-                                  <p><span class="font-medium text-base">Release Date : </span class="font-medium">${details.releaseDate}</p>
+                                  <p><span class="font-medium text-base">Release Date : </span class="font-medium">${details?.releaseDate}</p>
                                   
 
                                   <div class="card-actions justify-end">
@@ -91,7 +106,3 @@ const showDetails = details =>{
                                   </div>
                                 </div>`
 }
-
-
-
-loadData()
