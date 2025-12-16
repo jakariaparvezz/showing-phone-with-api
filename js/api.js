@@ -1,10 +1,12 @@
-function call(){
+// Function call From onclick
+function call(isAll){
     const searchText = document.getElementById('searchText').value
     
-    loadData(searchText)
+    loadData(searchText,isAll)
     loading(true)
 }
 
+// Loading Section 
 const loading= (isLoading) =>{
     const load = document.getElementById('loading')
     if (isLoading) {
@@ -16,20 +18,22 @@ const loading= (isLoading) =>{
 
 }
 
-
-function loadData(text='iphone'){
+// API fetch Section
+function loadData(text,isAll){
     fetch(`https://openapi.programming-hero.com/api/phones?search=${text}`)
     .then(res => res.json())
-    .then(data => showingPhone(data.data))
+    .then(data => showingPhone(data.data,isAll))
+    
 }
 
-const showingPhone = phones =>{
+// Showing phone by slicing 12 phone Section
+const showingPhone = (phones,isAll=false) =>{
 
          const container = document.getElementById('phone-container')
          const showMore  = document.getElementById('show-more-btn')
          container.innerText = ''
 
-            if (phones.length >= 12) {
+            if (phones.length >= 12 && isAll!=true) {
                 phones = phones.slice(0,12)
                 showMore.classList.remove('hidden')
             }
@@ -67,6 +71,7 @@ const showingPhone = phones =>{
 
 }
 
+// Fetch data by clicking showDetails
 const callDetails =async id =>{
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
     let data = await res.json()
@@ -75,6 +80,7 @@ const callDetails =async id =>{
     
 }
 
+// Showing Details by POP UP
 const showDetails = details =>{
     console.log(details)
     const detailsContainer = document.getElementById('details-container')
@@ -105,4 +111,9 @@ const showDetails = details =>{
                                     <button class="btn btn-primary">Buy Now</button>
                                   </div>
                                 </div>`
+}
+
+// show ALL Section
+const showALL = () => {
+    call(true)
 }
